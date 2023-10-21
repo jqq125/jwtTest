@@ -1,5 +1,6 @@
 package com.example.jwtdemo.config;
 
+import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -26,7 +27,7 @@ public class Knife4jConfig {
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())  //创建接口文档具体信息
                 .select() //创建选择器，控制哪些接口被加入文档
-                .apis(RequestHandlerSelectors.basePackage("com.example.jwtDemo"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.jwtdemo"))
                 .paths(PathSelectors.any())
                 .build();
 
@@ -39,6 +40,8 @@ public class Knife4jConfig {
                 .description("文档描述了接口定义") //文档描述
                 .contact(new Contact("kiki", "", "xxxxxxxx@qq.com")) //联系人信息
                 .version("v1.0.0") //版本信息
+                .license("example") //版权
+                .licenseUrl("http://www.example.com") //版权地址
                 .build();
     }
 }

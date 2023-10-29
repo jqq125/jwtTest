@@ -1,13 +1,16 @@
 package com.example.demo.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
-import com.example.demo.service.UserService;
 import com.example.demo.transfer.UserConvert;
 import com.example.demo.vo.UserVO;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,13 +38,27 @@ public class TestController {
     }
 
     @Autowired
-    private UserService userService;
+    private UserMapper userMapper;
 
     @GetMapping("/queryUser")
     @ApiOperationSupport(order = 3)
     public List<User> queryUser() {
-        List<User> users = userService.queryUserList();
+        List<User> users = userMapper.queryUserList();
         return users;
     }
+
+
+    @GetMapping("/testPage")
+    @ApiOperationSupport(order = 4)
+    @ApiOperation(value = "分页", tags = "分页测试")
+    public List<User> testPage(int pageNum,int pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<User> users = userMapper.queryUserList();
+        PageInfo<User> pageInfo = new PageInfo<>(users);
+        return pageInfo.getList();
+    }
+
+
+
 
 }

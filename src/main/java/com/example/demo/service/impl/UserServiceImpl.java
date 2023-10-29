@@ -17,4 +17,6 @@ public class UserServiceImpl implements UserService {
     public List<User> queryUserList() {
         return userMapper.queryUserList();
     }
+
+
 }

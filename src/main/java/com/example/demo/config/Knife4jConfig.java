@@ -26,7 +26,7 @@ public class Knife4jConfig {
                 .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())  //创建接口文档具体信息
                 .select() //创建选择器，控制哪些接口被加入文档
-                .apis(RequestHandlerSelectors.basePackage("com.example.jwtdemo"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo"))
                 .paths(PathSelectors.any())
                 .build();
 

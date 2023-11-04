@@ -9,7 +9,18 @@
     </select>
 
     <select id="queryUserById" resultType="com.example.demo.entity.User">
-        select * from demo.user where id = #{id};
+        select
+            name userName,
+            join_time joinTime
+            from demo.user where id = #{id};
+    </select>
+
+
+    <select id="selectUser" resultType="com.example.demo.vo.UserVO">
+        SELECT
+            name userName,
+            join_time joinTime
+            from demo.user
     </select>
 
     <insert id="addUser" parameterType="com.example.demo.entity.User">

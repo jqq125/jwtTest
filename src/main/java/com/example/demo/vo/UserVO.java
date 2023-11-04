@@ -3,6 +3,8 @@ package com.example.demo.vo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.sql.Date;
+
 /**
  * @author kiki
  */
@@ -18,6 +20,8 @@ public class UserVO {
     @ApiModelProperty("年龄")
     private Integer userAge;
 
+    @ApiModelProperty("入学时间")
+    private Date joinTime;
 
 
 }

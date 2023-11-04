@@ -59,6 +59,16 @@ public class TestController {
     }
 
 
+    @GetMapping("/testDate")
+    @ApiOperationSupport(order = 5)
+    @ApiOperation(value = "时间映射", tags = "时间映射")
+    public List<UserVO> testDate() {
+        List<UserVO> userVOS = userMapper.selectUser();
+        return userVOS;
+    }
+
+
+
 
 
 }
